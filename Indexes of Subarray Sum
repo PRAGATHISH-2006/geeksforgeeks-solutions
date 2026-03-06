@@ -1,0 +1,27 @@
+
+class Solution {
+    static ArrayList<Integer> subarraySum(int[] a, int t) {
+        // code here
+        ArrayList<Integer> b=new ArrayList<>();
+        int sum=0;
+        int start=0;
+        for(int end=0;end<a.length;end++)
+        {
+           sum+=a[end];
+           while(sum>t)
+           {
+              sum-=a[start];
+              start++;
+           }
+           if(sum==t)
+           {
+               b.add(start+1);
+               b.add(end+1);
+               return b;
+           }
+
+        }
+        b.add(-1);
+         return b;
+    }
+}
